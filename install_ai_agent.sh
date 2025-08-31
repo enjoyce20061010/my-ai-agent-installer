@@ -14,7 +14,7 @@ if ! command -v python3 &> /dev/null; then
       echo "Installing Homebrew... (You may be asked for your password)"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       echo -e "\nHomebrew installation complete!"
-      read -p $'\nTo make Homebrew available permanently, its environment needs to be added to your shell profile.\nThis script can do this for you automatically.\n\n[RISK WARNING]\nThis will modify your shell profile (~/.zshrc).\nTo revert, manually edit the file and remove the Homebrew settings at the end.\n\nConfigure automatically? (y/n) ' -n 1 -r
+      read -p $'\nTo make Homebrew available permanently, its environment needs to be added to your shell profile.\n\n[RISK WARNING]\nThis will modify your shell profile (~/.zshrc).\nTo revert, manually edit the file and remove the Homebrew settings at the end.\n\nConfigure automatically? (y/n) ' -n 1 -r
       echo
       if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo "Writing Homebrew environment to ~/.zshrc ..."
@@ -45,7 +45,7 @@ source ai_agent_env/bin/activate
 
 # Install dependencies
 pip install --upgrade pip
-pip install requests openai
+pip install Flask requests beautifulsoup4
 
 # Download the main agent script
 AGENT_URL="https://raw.githubusercontent.com/enjoyce20061010/my-ai-agent-installer/main/ai_agent.py"
